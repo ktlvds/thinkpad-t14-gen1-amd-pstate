@@ -1,6 +1,4 @@
-SSDT19
-------
-DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-R23  ", 0x00000001)
+DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-R1B  ", 0x00000001)
 {
     External (_SB_.PLTF.C000, DeviceObj)
     External (_SB_.PLTF.C001, DeviceObj)
