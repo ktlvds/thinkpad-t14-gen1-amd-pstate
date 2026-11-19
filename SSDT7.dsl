@@ -170,7 +170,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -694,7 +694,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1218,7 +1218,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1742,7 +1742,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2266,7 +2266,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2790,7 +2790,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -3314,7 +3314,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -3838,7 +3838,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -4362,7 +4362,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -4886,7 +4886,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -5410,7 +5410,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -5934,7 +5934,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000002)
                 Register (FFixedHW, 
                     0x02,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B4, // Address
+                    0x00000000C00102B2, // Address
                     0x04,               // Access Size
                     )
             }, 
