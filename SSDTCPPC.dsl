@@ -1,4 +1,4 @@
-DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
+DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 {
     External (_SB_.PLTF.C000, DeviceObj)
     External (_SB_.PLTF.C001, DeviceObj)
@@ -15,26 +15,46 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
 
     Scope (\_SB.PLTF.C000)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -44,28 +64,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -73,7 +74,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -83,17 +94,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -149,8 +150,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -160,19 +161,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -180,47 +182,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C001)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -230,28 +242,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -259,7 +252,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -269,17 +272,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -335,8 +328,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -346,19 +339,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -366,47 +360,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C002)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -416,28 +420,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -445,7 +430,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -455,17 +450,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -521,8 +506,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -532,19 +517,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -552,47 +538,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C003)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -602,28 +598,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -631,7 +608,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -641,17 +628,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -707,8 +684,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -718,19 +695,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -738,47 +716,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C004)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -788,28 +776,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -817,7 +786,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -827,17 +806,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -893,8 +862,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -904,19 +873,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -924,47 +894,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C005)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -974,28 +954,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1003,7 +964,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1013,17 +984,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1079,8 +1040,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1090,19 +1051,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -1110,47 +1072,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C006)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1160,28 +1132,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1189,7 +1142,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1199,17 +1162,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1265,8 +1218,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1276,19 +1229,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -1296,47 +1250,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C007)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1346,28 +1310,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1375,7 +1320,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1385,17 +1340,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1451,8 +1396,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1462,19 +1407,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -1482,47 +1428,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C008)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1532,28 +1488,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1561,7 +1498,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1571,17 +1518,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1637,8 +1574,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1648,19 +1585,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -1668,47 +1606,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C009)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1718,28 +1666,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1747,7 +1676,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1757,17 +1696,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1823,8 +1752,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1834,19 +1763,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -1854,47 +1784,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C00A)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1904,28 +1844,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -1933,7 +1854,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -1943,17 +1874,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2009,8 +1930,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2020,19 +1941,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -2040,47 +1962,57 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 
     Scope (\_SB.PLTF.C00B)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Name (_CPC, Package (0x15)  // _CPC: Continuous Performance Control
         {
-            0x17, 
-            0x03, 
+            0x15, 
+            0x02, 
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x08,               // Bit Offset
+                    0x00000000000000CE, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x10,               // Bit Offset
+                    0x0000000000000771, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
             ResourceTemplate ()
             {
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x10,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2090,28 +2022,9 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B0, // Address
+                    0x0000000000000771, // Address
                     0x04,               // Access Size
                     )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B0, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
             }, 
 
             ResourceTemplate ()
@@ -2119,7 +2032,17 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x10,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
+            }, 
+
+            ResourceTemplate ()
+            {
+                Register (FFixedHW, 
+                    0x08,               // Bit Width
+                    0x00,               // Bit Offset
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2129,17 +2052,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x08,               // Bit Offset
-                    0x00000000C00102B3, // Address
-                    0x04,               // Access Size
-                    )
-            }, 
-
-            ResourceTemplate ()
-            {
-                Register (FFixedHW, 
-                    0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2195,8 +2108,8 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
             {
                 Register (FFixedHW, 
                     0x02,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x00000000C00102B2, // Address
+                    0x01,               // Bit Offset
+                    0x0000000000000777, // Address
                     0x04,               // Access Size
                     )
             }, 
@@ -2206,19 +2119,20 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x01,               // Bit Width
                     0x00,               // Bit Offset
-                    0x00000000C00102B1, // Address
+                    0x0000000000000770, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            0x00000001, 
+            One, 
             ResourceTemplate ()
             {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
+                Register (FFixedHW, 
+                    0x0A,               // Bit Width
+                    0x20,               // Bit Offset
+                    0x0000000000000774, // Address
+                    0x04,               // Access Size
+                    )
             }, 
 
             ResourceTemplate ()
@@ -2226,22 +2140,12 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-R1B  ", 0x00000001)
                 Register (FFixedHW, 
                     0x08,               // Bit Width
                     0x18,               // Bit Offset
-                    0x00000000C00102B3, // Address
+                    0x0000000000000774, // Address
                     0x04,               // Access Size
                     )
             }, 
 
-            ResourceTemplate ()
-            {
-                Register (SystemMemory, 
-                    0x00,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000000, // Address
-                    ,)
-            }, 
-
-            0x00000190, 
-            0x00000A8D
+            Zero
         })
     }
 }
