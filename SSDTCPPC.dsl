@@ -21,11 +21,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -207,11 +207,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -393,11 +393,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -579,11 +579,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -765,11 +765,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -951,11 +951,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -1137,11 +1137,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -1323,11 +1323,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -1509,11 +1509,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -1695,11 +1695,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -1881,11 +1881,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
@@ -2067,11 +2067,11 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             0x03, 
             ResourceTemplate ()
             {
-                Register (SystemIO, 
+                Register (FFixedHW, 
                     0x08,               // Bit Width
-                    0x00,               // Bit Offset
-                    0x0000000000000208, // Address
-                    0x01,               // Access Size
+                    0x18,               // Bit Offset
+                    0x00000000C00102B0, // Address
+                    0x04,               // Access Size
                     )
             }, 
 
