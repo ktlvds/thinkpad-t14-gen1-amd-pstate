@@ -252,7 +252,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -444,7 +444,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -636,7 +636,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -828,7 +828,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1020,7 +1020,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1212,7 +1212,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1404,7 +1404,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1596,7 +1596,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1788,7 +1788,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -1980,7 +1980,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -2172,7 +2172,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 
@@ -2364,7 +2364,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             }, 
 
             0x00000190, 
-            0x00000BB9
+            0x00000834
         })
     }
 }
