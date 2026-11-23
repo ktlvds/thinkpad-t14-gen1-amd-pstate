@@ -12,10 +12,67 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
     External (_SB_.PLTF.C009, DeviceObj)
     External (_SB_.PLTF.C00A, DeviceObj)
     External (_SB_.PLTF.C00B, DeviceObj)
+    External (_SB_.A111, FieldUnitObj)
+    External (_SB_.A112, FieldUnitObj)
+    External (_SB_.A113, FieldUnitObj)
+    External (_SB_.A114, FieldUnitObj)
+    External (_SB_.A115, FieldUnitObj)
+    External (_SB_.A116, FieldUnitObj)
+    External (_SB_.A117, FieldUnitObj)
+    External (_SB_.A118, FieldUnitObj)
+
+    Name (CPTR, Zero)
+    Name (CPRS, Ones)
+
+    Method (CPIN, 0, Serialized)
+    {
+        If (CPTR)
+        {
+            Return ()
+        }
+
+        CPTR = One
+        If (Acquire (\_GL, 0x0064))
+        {
+            Return ()
+        }
+
+        If (\_SB.A111 == One)
+        {
+            \_SB.A111 = Zero
+            If (\_SB.A111 == Zero)
+            {
+                \_SB.A112 = Zero
+                \_SB.A113 = 0x00200000
+                \_SB.A114 = Zero
+                \_SB.A115 = Zero
+                \_SB.A116 = Zero
+                \_SB.A117 = Zero
+                \_SB.A118 = 0x05
+
+                Local0 = 0xC8
+                CPRS = \_SB.A111
+                While ((CPRS == Zero) && (Local0 != Zero))
+                {
+                    Sleep (0x05)
+                    Local0--
+                    CPRS = \_SB.A111
+                }
+            }
+        }
+
+        Release (\_GL)
+    }
 
     Scope (\_SB.PLTF.C000)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -201,7 +258,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C001)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -387,7 +450,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C002)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -573,7 +642,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C003)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -759,7 +834,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C004)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -945,7 +1026,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C005)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -1131,7 +1218,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C006)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -1317,7 +1410,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C007)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -1503,7 +1602,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C008)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -1689,7 +1794,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C009)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -1875,7 +1986,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C00A)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
@@ -2061,7 +2178,13 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Scope (\_SB.PLTF.C00B)
     {
-        Name (_CPC, Package (0x17)  // _CPC: Continuous Performance Control
+        Method (_CPC, 0, NotSerialized)
+        {
+            \CPIN ()
+            Return (CPKG)
+        }
+
+        Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
         {
             0x17, 
             0x03, 
