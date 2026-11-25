@@ -23,6 +23,7 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
 
     Name (CPTR, Zero)
 
+    // Ask the SMU to fill CAP1 before the kernel reads it
     Method (CPIN, 0, Serialized)
     {
         If (CPTR)
@@ -35,30 +36,35 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
             Return ()
         }
 
-        If (\_SB.A111 == One)
+        \_SB.A111 = Zero
+        Local0 = 0x14
+        While ((\_SB.A111 != Zero) && (Local0 != Zero))
         {
-            \_SB.A111 = Zero
-            If (\_SB.A111 == Zero)
-            {
-                CPTR = One
+            Sleep (0x05)
+            Local0--
+        }
 
-                \_SB.A112 = Zero
-                \_SB.A113 = 0x00200000
-                \_SB.A114 = Zero
-                \_SB.A115 = Zero
-                \_SB.A116 = Zero
-                \_SB.A117 = Zero
-                \_SB.A118 = 0x05
+        If (\_SB.A111 != Zero)
+        {
+            Release (\_GL)
+            Return ()
+        }
 
-                Local0 = 0xC8
-                Local1 = \_SB.A111
-                While ((Local1 == Zero) && (Local0 != Zero))
-                {
-                    Sleep (0x05)
-                    Local0--
-                    Local1 = \_SB.A111
-                }
-            }
+        CPTR = One
+
+        \_SB.A112 = Zero
+        \_SB.A113 = 0x00200000
+        \_SB.A114 = Zero
+        \_SB.A115 = Zero
+        \_SB.A116 = Zero
+        \_SB.A117 = Zero
+        \_SB.A118 = 0x05
+
+        Local0 = 0x14
+        While ((\_SB.A111 == Zero) && (Local0 != Zero))
+        {
+            Sleep (0x05)
+            Local0--
         }
 
         Release (\_GL)
