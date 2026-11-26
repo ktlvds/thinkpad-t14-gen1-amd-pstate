@@ -21,6 +21,25 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
     External (_SB_.A117, FieldUnitObj)
     External (_SB_.A118, FieldUnitObj)
 
+    Scope (\_SB)
+    {
+        Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
+        {
+            CreateDWordField (Arg3, Zero, CDW1)
+            If ((Arg0 != ToUUID ("0811b06e-4a27-44f9-8d60-3cbbc22e7b48") /* Platform-wide Capabilities */))
+            {
+                CDW1 |= 0x04
+                Return (Arg3)
+            }
+            
+            // Acknowledge CPPC capabilities for amd-pstate active mode
+            // 0x0020 - CPPC Support, 0x0040 - CPPC 2 Support, 0x4000 - Flexible Address Space for CPPC Registers
+            CreateDWordField (Arg3, 0x04, CDW2)
+            CDW2 &= 0x4060
+            Return (Arg3)
+        }
+    }
+
     Name (CPTR, Zero)
 
     // Ask the SMU to fill CAP1 before the kernel reads it
@@ -70,10 +89,10 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
         Release (\_GL)
     }
 
-    //Restore CPPC after wakeup
+    // Restore CPPC after wakeup
     Method (_TTS, 1, NotSerialized)
     {
-        If (Arg0 == Zero) //S0
+        If (Arg0 == Zero) // S0
         {
             CPTR = 0
             \CPIN ()
