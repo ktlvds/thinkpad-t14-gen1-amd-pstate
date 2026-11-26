@@ -70,6 +70,16 @@ DefinitionBlock ("", "SSDT", 1, "LENOVO", "CPPCMOD", 0x00000001)
         Release (\_GL)
     }
 
+    //Restore CPPC after wakeup
+    Method (_TTS, 1, NotSerialized)
+    {
+        If (Arg0 == Zero) //S0
+        {
+            CPTR = 0
+            \CPIN ()
+        }
+    }
+
     Name (CPKG, Package (0x17)  // _CPC: Continuous Performance Control
     {
         0x17, 
